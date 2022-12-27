@@ -11,6 +11,16 @@ import MessageIcon from '@mui/icons-material/Message'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 
 type Props = {}
+
+const sidebar = document.querySelector('.sidebar')
+const navItems = document.querySelector('nav .nav-item')
+const toggle = document.querySelector('.toggle')
+
+toggle?.addEventListener('click', () => {
+    if (sidebar?.className === 'sidebar') sidebar?.classList.add('open')
+    else sidebar?.classList.remove('open')
+})
+
 const Header = (props: Props) => {
     return (
         <>

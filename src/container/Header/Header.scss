@@ -21,6 +21,7 @@ body {
     background: rgba( 10, 10, 10, .65);
     box-shadow: 0 8px 32px rgb(2,4,24);
     border-right: 2px solid rgba(255,255,255, .09);
+    transition: .4s ease-in-out;
     .logo {
         width: 100%;
         height: 240px;
@@ -118,10 +119,14 @@ body {
         }
         img {
             width: 144px;
+            transition: .4s;
+            transition-delay: .2s;
         }
     }
     .nav-title {
         opacity: 1;
+        transition: .4s;
+        transition-delay: .2s;
     }
     nav {
         .nav-item{
