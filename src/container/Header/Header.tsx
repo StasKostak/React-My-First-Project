@@ -1,4 +1,3 @@
-import bg from 'assets/bg.jpg'
 import logo from 'assets/logo.png'
 import './Header.scss'
 import SettingsIcon from '@mui/icons-material/Settings'
@@ -9,24 +8,50 @@ import DashboardIcon from '@mui/icons-material/Dashboard'
 import HelpIcon from '@mui/icons-material/Help'
 import MessageIcon from '@mui/icons-material/Message'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
+import { Component, useState } from 'react'
 
 type Props = {}
 
-const sidebar = document.querySelector('.sidebar')
-const navItems = document.querySelector('nav .nav-item')
-const toggle = document.querySelector('.toggle')
+// const navItems = document.querySelector('nav .nav-item')
 
-toggle?.addEventListener('click', () => {
-    if (sidebar?.className === 'sidebar') sidebar?.classList.add('open')
-    else sidebar?.classList.remove('open')
-})
+// navItems?.forEach((navItems) => {
+//     navItems.addEventListener('click', () => {
+//         navItems.forEach((navItems) => {
+//             navItems.classList.remove('active')
+//         })
+//         navItems.classList.add('active')
+//     })
+// })
 
 const Header = (props: Props) => {
+    const [size, setSize] = useState<string>('sidebar')
+    const [color, setColor] = useState<string>('nav-item')
+
+    const changeSize = () => {
+        setSize((prevState: string) => {
+            if (prevState === 'sidebar open') {
+                return 'sidebar'
+            } else {
+                return 'sidebar open'
+            }
+        })
+    }
+
+    const changeColor = () => {
+        setColor((prevState: string) => {
+            if (prevState === 'nav-item') {
+                return 'nav-item active'
+            } else {
+                return 'nav-item'
+            }
+        })
+    }
+
     return (
         <>
-            <div className="sidebar open">
+            <div className={size}>
                 <div className="toggle">
-                    <i className="bx">
+                    <i className="bx" onClick={() => changeSize()}>
                         <NavigateNextIcon
                             className="vector"
                             fontSize="large"
@@ -40,13 +65,13 @@ const Header = (props: Props) => {
                 <nav>
                     <div className="nav-title">Management</div>
                     <ul>
-                        <li className="nav-item active">
+                        <li className={color} onClick={() => changeColor()}>
                             <i className="bx">
                                 <DashboardIcon></DashboardIcon>
                             </i>
                             <span>Dashboard</span>
                         </li>
-                        <li className="nav-item">
+                        <li className={color} onClick={() => changeColor()}>
                             <i className="bx">
                                 <AnalyticsIcon></AnalyticsIcon>
                             </i>
