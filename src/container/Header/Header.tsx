@@ -1,4 +1,5 @@
 import logo from 'assets/logo.png'
+import * as React from 'react'
 import './Header.scss'
 import SettingsIcon from '@mui/icons-material/Settings'
 import NotificationsIcon from '@mui/icons-material/Notifications'
@@ -9,23 +10,13 @@ import HelpIcon from '@mui/icons-material/Help'
 import MessageIcon from '@mui/icons-material/Message'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import { Component, useState } from 'react'
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
+import ToggleButton from '@mui/material/ToggleButton'
 
 type Props = {}
 
-// const navItems = document.querySelector('nav .nav-item')
-
-// navItems?.forEach((navItems) => {
-//     navItems.addEventListener('click', () => {
-//         navItems.forEach((navItems) => {
-//             navItems.classList.remove('active')
-//         })
-//         navItems.classList.add('active')
-//     })
-// })
-
 const Header = (props: Props) => {
     const [size, setSize] = useState<string>('sidebar')
-    const [color, setColor] = useState<string>('nav-item')
 
     const changeSize = () => {
         setSize((prevState: string) => {
@@ -33,16 +24,6 @@ const Header = (props: Props) => {
                 return 'sidebar'
             } else {
                 return 'sidebar open'
-            }
-        })
-    }
-
-    const changeColor = () => {
-        setColor((prevState: string) => {
-            if (prevState === 'nav-item') {
-                return 'nav-item active'
-            } else {
-                return 'nav-item'
             }
         })
     }
@@ -65,13 +46,13 @@ const Header = (props: Props) => {
                 <nav>
                     <div className="nav-title">Management</div>
                     <ul>
-                        <li className={color} onClick={() => changeColor()}>
+                        <li className="nav-item active">
                             <i className="bx">
                                 <DashboardIcon></DashboardIcon>
                             </i>
                             <span>Dashboard</span>
                         </li>
-                        <li className={color} onClick={() => changeColor()}>
+                        <li className="nav-item">
                             <i className="bx">
                                 <AnalyticsIcon></AnalyticsIcon>
                             </i>
