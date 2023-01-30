@@ -1,17 +1,15 @@
 import logo from 'assets/logo.png'
-import * as React from 'react'
 import './Header.scss'
 import SettingsIcon from '@mui/icons-material/Settings'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import WalletIcon from '@mui/icons-material/Wallet'
-import AnalyticsIcon from '@mui/icons-material/Analytics'
-import DashboardIcon from '@mui/icons-material/Dashboard'
+import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic'
+import HomeIcon from '@mui/icons-material/Home'
 import HelpIcon from '@mui/icons-material/Help'
 import MessageIcon from '@mui/icons-material/Message'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
-import { Component, useState } from 'react'
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import ToggleButton from '@mui/material/ToggleButton'
+import { useState } from 'react'
+import MenuItem from 'components/Menu/MenuItem'
 
 type Props = {}
 
@@ -24,6 +22,21 @@ const Header = (props: Props) => {
                 return 'sidebar'
             } else {
                 return 'sidebar open'
+            }
+        })
+    }
+
+    const [active, setActive] = useState<string>('nav-item')
+
+    const changeActive = () => {
+        setActive((prevState: string) => {
+            if (prevState === 'nav-item active') {
+                return 'nav-item'
+            }
+            if (prevState === 'nav-item') {
+                return 'nav-item active'
+            } else {
+                return 'nav-item active'
             }
         })
     }
@@ -45,54 +58,44 @@ const Header = (props: Props) => {
                 </div>
                 <nav>
                     <div className="nav-title">Management</div>
-                    <ul>
-                        <li className="nav-item active">
-                            <i className="bx">
-                                <DashboardIcon></DashboardIcon>
-                            </i>
-                            <span>Dashboard</span>
-                        </li>
-                        <li className="nav-item">
-                            <i className="bx">
-                                <AnalyticsIcon></AnalyticsIcon>
-                            </i>
-                            <span>Analitics</span>
-                        </li>
-                        <li className="nav-item">
-                            <i className="bx">
-                                <WalletIcon></WalletIcon>
-                            </i>
-                            <span>Wallet</span>
-                        </li>
-                        <li className="nav-item">
-                            <i className="bx">
-                                <NotificationsIcon></NotificationsIcon>
-                            </i>
-                            <span>Notifications</span>
-                        </li>
-                        <li className="nav-item">
-                            <i className="bx">
-                                <SettingsIcon></SettingsIcon>
-                            </i>
-                            <span>Settings</span>
-                        </li>
-                    </ul>
+
+                    <MenuItem to="/">
+                        <HomeIcon></HomeIcon>
+                        <span>Home</span>
+                    </MenuItem>
+
+                    <MenuItem to="slaider">
+                        <AutoAwesomeMosaicIcon></AutoAwesomeMosaicIcon>
+                        <span>Catalog</span>
+                    </MenuItem>
+
+                    <MenuItem to="about">
+                        <WalletIcon></WalletIcon>
+                        <span>Wallet</span>
+                    </MenuItem>
+
+                    <MenuItem to="payment">
+                        <NotificationsIcon></NotificationsIcon>
+                        <span>Notifications</span>
+                    </MenuItem>
+
+                    <MenuItem to="shipping">
+                        <SettingsIcon></SettingsIcon>
+                        <span>Settings</span>
+                    </MenuItem>
+
                     <hr />
                     <div className="nav-title">Supports</div>
-                    <ul>
-                        <li className="nav-item">
-                            <i className="bx">
-                                <HelpIcon></HelpIcon>
-                            </i>
-                            <span>Get Help</span>
-                        </li>
-                        <li className="nav-item">
-                            <i className="bx">
-                                <MessageIcon></MessageIcon>
-                            </i>
-                            <span>Send Feedback</span>
-                        </li>
-                    </ul>
+
+                    <MenuItem to="help">
+                        <HelpIcon></HelpIcon>
+                        <span>Get Help</span>
+                    </MenuItem>
+
+                    <MenuItem to="feedback">
+                        <MessageIcon></MessageIcon>
+                        <span>Send Feedback</span>
+                    </MenuItem>
                 </nav>
             </div>
         </>

@@ -1,12 +1,13 @@
-import Slaider from 'components/Slaider/Slaider'
 import Header from 'container/Header/Header'
+import Main from 'container/Main/Main'
+import 'swiper/css/bundle'
 
 type Props = {}
 const App = (props: Props) => {
     return (
         <>
             <Header></Header>
-            <Slaider></Slaider>
+            <Main></Main>
         </>
     )
 }
