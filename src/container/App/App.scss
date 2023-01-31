@@ -1,0 +1,9 @@
+.background {
+    position: fixed;
+    top: 0;
+    img {
+        z-index: -1000;
+        position: relative;
+        width: 100%;
+    }
+}

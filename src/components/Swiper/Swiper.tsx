@@ -1,7 +1,4 @@
 import React, { useRef, useState } from 'react'
-import wallpaper1 from 'assets/wallpaper1.jpg'
-import wallpaper2 from 'assets/wallpaper2.png'
-import wallpaper3 from 'assets/wallpaper3.png'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
@@ -26,13 +23,13 @@ export default function App() {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img src={wallpaper1} />
+                    <img src="/images/wallpaper1.jpg" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={wallpaper2} />
+                    <img src="/images/wallpaper2.png" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={wallpaper3} />
+                    <img src="/images/wallpaper3.png" />
                 </SwiperSlide>
             </Swiper>
         </>

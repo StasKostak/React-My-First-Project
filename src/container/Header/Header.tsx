@@ -1,4 +1,3 @@
-import logo from 'assets/logo.png'
 import './Header.scss'
 import SettingsIcon from '@mui/icons-material/Settings'
 import NotificationsIcon from '@mui/icons-material/Notifications'
@@ -26,21 +25,6 @@ const Header = (props: Props) => {
         })
     }
 
-    const [active, setActive] = useState<string>('nav-item')
-
-    const changeActive = () => {
-        setActive((prevState: string) => {
-            if (prevState === 'nav-item active') {
-                return 'nav-item'
-            }
-            if (prevState === 'nav-item') {
-                return 'nav-item active'
-            } else {
-                return 'nav-item active'
-            }
-        })
-    }
-
     return (
         <>
             <div className={size}>
@@ -53,7 +37,7 @@ const Header = (props: Props) => {
                     </i>
                 </div>
                 <div className="logo">
-                    <img src={logo} alt="" />
+                    <img src="/images/logo.png" alt="" />
                     <h3>Welcome to my Page</h3>
                 </div>
                 <nav>

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import articlesArray from 'components/Articles/articlesArray'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -10,6 +11,15 @@ import './Slider.scss'
 import { Autoplay, Pagination, Navigation } from 'swiper'
 
 type Props = {}
+type ArticlesProps = {
+    id: number
+    title: string
+    author: string
+    content: string
+    date: string
+    image: string
+    category?: string
+}
 const Slider = (props: Props) => {
     return (
         <>
@@ -29,25 +39,36 @@ const Slider = (props: Props) => {
                     modules={[Autoplay, Pagination, Navigation]}
                     className="mySwiper"
                 >
-                    <SwiperSlide>
-                        <p>Lorem ipsum dolor sit.</p>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Quos labore ipsum, doloremque exercitationem
-                            amet aspernatur harum dolores odit impedit earum
-                            quaerat laudantium distinctio cumque nisi pariatur
-                            facilis eum sint veritatis.
-                        </p>
-                    </SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-                    <SwiperSlide>Slide 7</SwiperSlide>
-                    <SwiperSlide>Slide 8</SwiperSlide>
-                    <SwiperSlide>Slide 9</SwiperSlide>
+                    {articlesArray
+                        .filter(
+                            ({ category }: ArticlesProps) =>
+                                category === 'space'
+                        )
+                        .map(
+                            ({
+                                title,
+                                author,
+                                content,
+                                date,
+                                image,
+                            }: ArticlesProps) => (
+                                <SwiperSlide>
+                                    <div className="container-slide">
+                                        <img src={image} alt="" />
+                                        <p className="title-slide">{title}</p>
+                                        <p className="content-slide">
+                                            {content}
+                                        </p>
+                                        <div className="info-slide">
+                                            <p className="date-slide">{date}</p>
+                                            <p className="author-slide">
+                                                {author}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                            )
+                        )}
                 </Swiper>
             </div>
         </>
