@@ -1,4 +1,5 @@
 .container-slider{
+    margin-bottom: 30px;
     .swiper {
         width: auto;
         height: 500px;
@@ -20,6 +21,7 @@
             img {
                 width: 340px;
                 height: 200px;
+                border-radius: 7px;
             }
             p {
                 text-align: start;

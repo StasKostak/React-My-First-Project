@@ -19,6 +19,7 @@ type ArticlesProps = {
     image: string
     category?: string
 }
+
 const Slider = (props: Props) => {
     return (
         <>

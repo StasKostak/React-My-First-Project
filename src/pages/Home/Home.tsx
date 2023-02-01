@@ -1,3 +1,4 @@
+import Intro from 'components/Intro/Intro'
 import Slider from 'components/Slider/Slider'
 import './Home.scss'
 
@@ -7,6 +8,7 @@ const Home = (props: Props) => {
     return (
         <>
             <Slider />
+            <Intro />
         </>
     )
 }

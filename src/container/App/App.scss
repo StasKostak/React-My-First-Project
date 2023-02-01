@@ -1,6 +1,7 @@
 .background {
     position: fixed;
     top: 0;
+    z-index: -1000;
     img {
         z-index: -1000;
         position: relative;
