@@ -1,6 +1,5 @@
 import Header from 'container/Header/Header'
 import Main from 'container/Main/Main'
-import 'swiper/css/bundle'
 import './App.scss'
 
 type Props = {}

@@ -1,7 +1,7 @@
 import { Container } from '@mui/material'
 import { Route, Routes } from 'react-router-dom'
-import Swiper from 'components/Swiper/Swiper'
 import Home from 'pages/Home/Home'
+import ArticlePage from 'pages/ArticlePage/ArticlePage'
 
 type Props = {}
 const Main = (props: Props) => {
@@ -10,7 +10,7 @@ const Main = (props: Props) => {
             <Container>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="slaider" element={<Swiper />} />
+                    <Route path="catalog" element={<ArticlePage />} />
                     <Route path="about" />
                     <Route path="payment" />
                     <Route path="shipping" />

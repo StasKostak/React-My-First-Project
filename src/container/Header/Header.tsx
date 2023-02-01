@@ -48,7 +48,7 @@ const Header = (props: Props) => {
                         <span>Home</span>
                     </MenuItem>
 
-                    <MenuItem to="slaider">
+                    <MenuItem to="catalog">
                         <AutoAwesomeMosaicIcon></AutoAwesomeMosaicIcon>
                         <span>Catalog</span>
                     </MenuItem>
